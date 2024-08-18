@@ -38,17 +38,14 @@ public class GuiInstance <ContextType extends AbstractGuiContext> {
     }
 
     public void runAction(int slot, ClickEventContext<ContextType> ctx) {
-        System.out.println("Running action for slot " + slot);
 
         // Trigger general click handlers
         for (GuiAction<ContextType> handler : this.handlers) {
-            System.out.println("handler = " + handler);
             handler.accept(ctx);
         }
 
         // Trigger slot-specific click actions
         Consumer<ClickEventContext<ContextType>> action = actions.get(slot);
-        System.out.println("action = " + action);
         if (action != null) action.accept(ctx);
     }
 

@@ -35,13 +35,10 @@ public class GuiListener <ContextType extends AbstractGuiContext> implements Lis
 
         Inventory topInv = invView.getTopInventory();
         if (!(topInv.getHolder() instanceof GuiLibHolder)) return;
-        System.out.println("is GuiLibHolder");
         // noinspection unchecked // guaranteed
         GuiLibHolder<ContextType> holder = (GuiLibHolder<ContextType>) topInv.getHolder();
-        System.out.println("holder = " + holder);
 
         GuiInstance<ContextType> gui = holder.getGuiInstance();
-        System.out.println("gui = " + gui);
         if (gui == null) return;
 
         ContextType guiCtx = gui.getContext();

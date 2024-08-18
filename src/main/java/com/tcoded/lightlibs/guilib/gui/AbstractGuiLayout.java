@@ -53,7 +53,6 @@ public abstract class AbstractGuiLayout <ContextType extends AbstractGuiContext>
     }
 
     public void applyClickHandlers(GuiInstance<ContextType> gui) {
-        System.out.println("applying " + this.clickHandlers.size() + " click handlers");
         this.clickHandlers.forEach(gui::addClickHandler);
     }
 
