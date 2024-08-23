@@ -59,7 +59,7 @@ public abstract class AbstractGuiLayout <ContextType extends AbstractGuiContext>
     public GuiLibHolder<ContextType> createInventory(OpenGuiContext<ContextType> ctx) {
         GuiLibHolder<ContextType> holder = new GuiLibHolder<>(ctx.getGuiContext());
 
-        Inventory inventory = Bukkit.createInventory(holder, getSize(), getTitle());
+        Inventory inventory = Bukkit.createInventory(holder, getSize(ctx), getTitle(ctx));
         holder.setInventory(inventory);
 
         return holder;
@@ -67,8 +67,8 @@ public abstract class AbstractGuiLayout <ContextType extends AbstractGuiContext>
 
     protected abstract ItemStack getBackground();
 
-    protected abstract String getTitle();
+    protected abstract String getTitle(OpenGuiContext<ContextType> ctx);
 
-    protected abstract int getSize();
+    protected abstract int getSize(OpenGuiContext<ContextType> ctx);
 
 }
